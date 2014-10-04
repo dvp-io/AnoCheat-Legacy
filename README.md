@@ -31,24 +31,25 @@ Certains scripts utilisent les API I/O, il n'est pas prévu de changer de métho
 
 Pour utiliser ces script vous devez avoir installé une extension sur votre navigateur:
 
-GreaseMonkey pour Firefox: https://addons.mozilla.org/fr/firefox/addon/greasemonkey/
+[GreaseMonkey](https://addons.mozilla.org/fr/firefox/addon/greasemonkey/) pour Firefox 
 
-TamperMonkey pour Chromium: https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo
+[TamperMonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo) pour Chromium 
 
-ViolentMonkey pour Opera: https://addons.opera.com/fr/extensions/details/violent-monkey/
+[ViolentMonkey](https://addons.opera.com/fr/extensions/details/violent-monkey/) pour Opera 
 
 ## INTALLATION
 
-Pour installer un script cliquez dessus, *Monkey vous demandera si vous voulez l'installer, cliquez sur accepter.
+Pour installer un script il suffit de vous rendre sur le [FTP I/O] (http://dl.dvp.io/anocheat) et de cliquer sur le script qui vous intéresse, l'extension vous demandera si vous voulez l'installer, cliquez sur accepter.
 
-Une fois le script installé vous devez fermer le chat et rafarichir la page.
+Une fois le script installé vous devez fermer le chat et rafarichir la page en vidant le cache (ctrl + F5)
 
 ## MISES A JOUR
 
 Les scripts sont conçus pour êtres mis à jours automatiquement, vérifiez la configuration de votre extension *Monkey.
 
-Les scripts sont automatiquement mis à jour sur le FTP lorsqu'un push est effectué, les extension *Monkey peuvent mettre un certain temps avant de checker le FTP. Il est conseillé de paramétrer les extension pour effectuer un check toutes les 24h minimum afin d'éviter tout problème d'incompatibilité avec les dernières versions du chat.
+Les scripts sont automatiquement mis à jour sur le FTP lorsqu'un push est effectué, les extensions peuvent mettre un certain temps avant de checker le FTP. Il est conseillé de paramétrer votre extension pour effectuer un check toutes les 24h minimum afin d'éviter tout problème d'incompatibilité avec les dernières versions du chat.
 
-Have fun!
+## Remerciements à:
 
-- Gecko
+- Anomaly, pour le travail fourni sur l'AnoChat et tout le reste
+- SpaceFrog, ThomasR et CroftMan, pour les différentes phases de test et les nombreux retour
