@@ -5,7 +5,7 @@ Dans ce répertoire se trouvent tous les scripts qui permettent d'ajouter de nou
 
 N'hésitez pas à me soumettre vos idées, j'essaie d'allouer 2-3h par semaine à la conception et au maintien de ces scripts.
 
-Les scripts présents sur le FTP qui ne sont pas sur ce repo sont à utiliser avec prudence, je ne publie que les userscripts en bêta / stables
+Les scripts présents sur le [FTP I/O](http://dl.dvp.io/anocheat/) qui ne sont pas sur ce repo sont à utiliser avec prudence, je ne publie que les userscripts en bêta / stables
 
 ## Licence
 Tous les scripts sont désormais sous licence BEER-WARE
