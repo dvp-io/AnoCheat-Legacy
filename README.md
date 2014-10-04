@@ -17,9 +17,12 @@ Pour participer respectez ces règles:
 - La version doit être mise à jour lors de votre pull request dans le format suivant: AAAA.MM.JJ.ID (ID est le nombre de modification effectuées ce jour, 1 par défaut)
 - Le script doit utiliser jQuery/jQuery UI
 - Mettez votre nom sur le tag @contributors, exemple:
-@contributors: Toto <mail>
-               Tata <mail>
-
+```javascript
+/*
+ *@contributors: Toto <mail>
+ *               Tata <mail>
+*/
+```
 
 ## Les API I/O
 Certains scripts utilisent les API I/O, il n'est pas prévu de changer de méthode dans l'immédiat, sans ça les scripts seraient trop lourds et surchargeraient le navigateur.
