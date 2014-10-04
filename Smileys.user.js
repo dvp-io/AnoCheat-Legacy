@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name          Smileys - DVP I/O
-// @author				Antoine 'Gecko' Pous <gecko@dvp.io>
-// @licence       No licence, you can modify an use this script as you want
+// @author				    Antoine 'Gecko' Pous <gecko@dvp.io>
+// @licence       BEER-WARE https://github.com/Antoine-Pous/AnoCheat/blob/master/LICENSE-BEER-WARE
 // @namespace     http://www.dvp.io/fr/blog/anocheat-autologin
 // @description   Ajoute les smileys disponibles sur le dépôt de dvp.io à l'anochat
 // @include       http://chat.developpez.com/
-// @version       2014.10.04.1
+// @version       2014.10.04.2
 // @downloadURL   http://dl.dvp.io/anocheat/Smileys.user.js
 // @updateURL     http://dl.dvp.io/anocheat/Smileys.user.js
 // @website       http://www.dvp.io
