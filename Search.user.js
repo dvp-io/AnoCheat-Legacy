@@ -5,7 +5,7 @@
 // @namespace     http://www.dvp.io/fr/blog/anocheat-autologin
 // @description   Ajoute des fonctions de recherche via l'API Search DVP I/O à l'AnoChat
 // @include       http://chat.developpez.com/
-// @version       2014.10.04.1
+// @version       2014.10.21.1
 // @downloadURL   http://dl.dvp.io/anocheat/Search.user.js
 // @updateURL     http://dl.dvp.io/anocheat/Search.user.js
 // @website       http://www.dvp.io
@@ -220,8 +220,7 @@ function main() {
 									notifyUser({'type':'error','msg':'Error Search x00 : Development in progress'});
 									return;
 								case 'download':
-									notifyUser({'type':'success','msg':'Dernière version stable du script: <a href="http://projet.gecko.dvp.io/us/Search-2.3.user.js">http://projet.gecko.dvp.io/us/Search-2.3.user.js</a>'});
-									notifyUser({'type':'warn','msg':'Version de développement: <a href="http://projet.gecko.dvp.io/us/Search-10.0.user.js">http://projet.gecko.dvp.io/us/Search-10.0.user.js</a>'});
+									notifyUser({'type':'success','msg':'La dernière version du script est disponible sur le <a href="http://dl.dvp.io/anocheat/">FTP I/O</a> et sur <a href="https://github.com/Antoine-Pous/AnoCheat/blob/master/Search.user.js">Github</a>'});
 									break;
 								default:
 									notifyUser({'msg':'Utilisation <span style="font-style:normal;color:black;">!search [engines|man [engine]|update|topengine|topquery|download]</span>'});
