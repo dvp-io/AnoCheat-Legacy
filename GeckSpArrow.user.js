@@ -5,7 +5,7 @@
 // @namespace     http://dl.dvp.io/anocheat/GeckSPArrow.user.js
 // @description   Ajoute des flèches qui facilitent l'accès visuel aux interventsion sur le chat
 // @include       http://chat.developpez.com/
-// @version       2014.10.23.1
+// @version       2014.10.24.1
 // @downloadURL   http://dl.dvp.io/anocheat/GeckSPArrow.user.js
 // @updateURL     http://dl.dvp.io/anocheat/GeckSPArrow.user.js
 // @website       http://www.dvp.io
@@ -37,7 +37,6 @@ var main = function() {
           var entry = data.salon;
 	  		 
         } else if(data.pvs != ''){
-          
           // Pour les MP on affiche pas les flèches (comportement natif)
           return;
           var selector = '#conversation'.concat(data.pvs[0].id);
@@ -53,15 +52,15 @@ var main = function() {
         var conv = $(selector).html().toString();
         entry = entry.replace('<br />','<br>');
         if (entry.match(/images\/fleche.png/)) {
-          $(selector).html(conv.replace('images/fleche.png',imgInc));
+          var rep = conv.replace('images/fleche.png',imgInc);
         } else {
           if ($(entry).text().indexOf("[" + pseudo + "]:") === 0) {
-            var rep = conv.replace(entry, '<img src="' + imgOut + '" title="" alt="" />'.concat(entry));
+            var rep = conv.replace(entry, '<img src="'.concat(imgOut,'" title="" alt="" />', entry));
           } else {
-            var rep = conv.replace(entry, '<img src="' + imgInf + '" title="" alt="" />'.concat(entry));
+            var rep = conv.replace(entry, '<img src="'.concat(imgInf,'" title="" alt="" />', entry));
           }
-          $(selector).html(rep);
         }
+        $(selector).html(rep);
         
       }
      
