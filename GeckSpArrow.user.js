@@ -5,7 +5,7 @@
 // @namespace     http://dl.dvp.io/anocheat/GeckSPArrow.user.js
 // @description   Ajoute des flèches qui facilitent l'accès visuel aux interventsion sur le chat
 // @include       http://chat.developpez.com/
-// @version       2014.10.24.1
+// @version       2014.10.24.3
 // @downloadURL   http://dl.dvp.io/anocheat/GeckSPArrow.user.js
 // @updateURL     http://dl.dvp.io/anocheat/GeckSPArrow.user.js
 // @website       http://www.dvp.io
@@ -23,9 +23,10 @@ var main = function() {
     
     $(document).ajaxComplete(function(event, xhr, settings) {
       
-      var imgInc = 'http://media.dvp.io/anocheat/16x16_message_incoming_orange.png';
-      var imgOut = 'http://media.dvp.io/anocheat/16x16_message_outgoing_blue.png';
+      var imgInc = 'http://media.dvp.io/anocheat/16x16_message_incoming.png';
+      var imgOut = 'http://media.dvp.io/anocheat/16x16_message_outgoing.png';
       var imgInf = 'http://media.dvp.io/anocheat/16x16_message_info.png';
+      var imgNoI = 'http://media.dvp.io/anocheat/16x16_message_noinfo.png';
       
       if(settings.url == 'ajax.php') {
         
@@ -34,13 +35,13 @@ var main = function() {
         if(data.salon != ''){
           
           var selector = "#conversation0";
-          var entry = data.salon;
+          var entry = data.salon.split('<br />');
 	  		 
         } else if(data.pvs != ''){
           // Pour les MP on affiche pas les flèches (comportement natif)
           return;
           var selector = '#conversation'.concat(data.pvs[0].id);
-          var entry = data.pvs[0].html;
+          var entries = data.pvs[0].html;
           
         } else {
           
@@ -49,18 +50,40 @@ var main = function() {
           
         }
         
-        var conv = $(selector).html().toString();
-        entry = entry.replace('<br />','<br>');
-        if (entry.match(/images\/fleche.png/)) {
-          var rep = conv.replace('images/fleche.png',imgInc);
-        } else {
-          if ($(entry).text().indexOf("[" + pseudo + "]:") === 0) {
-            var rep = conv.replace(entry, '<img src="'.concat(imgOut,'" title="" alt="" />', entry));
-          } else {
-            var rep = conv.replace(entry, '<img src="'.concat(imgInf,'" title="" alt="" />', entry));
+        // On parcours la liste des nouvelles entrées
+        $.each(entry, function(e) {
+          
+          // Si la ligne contiens des images on retire le endslash des noeuds img
+          var imgRe = entry[e].match(/(<img.*?.*?>)/gi);
+          if (imgRe instanceof Array) {
+            var i = -1;
+            while(imgRe[++i]) {
+              var newImg = imgRe[i].replace(' />','>');
+              entry[e] = entry[e].replace(imgRe[i], newImg);
+            }
           }
-        }
-        $(selector).html(rep);
+          
+          // On récupère le DOM actuel
+          var conv = $(selector).html().toString();
+          
+          if (entry[e].match(/images\/fleche\.png/g)) {
+            // Si on est HL
+            var ret = conv.replace('images/fleche.png',imgInc);
+          } else {
+            if ($(entry[e]).text().indexOf("[" + pseudo + "]:") === 0) {
+              // Si on est l'envoyeur
+              var ret = conv.replace(entry[e], '<img src="'.concat(imgOut,'" title="" alt="">', entry[e]));
+            } else {
+              // Message reçu sans HL
+              //var ret = conv.replace(entry[e], '<img src="'.concat(imgNoI,'" title="" alt="">', entry[e]));
+            }
+          }
+          
+          if (typeof(ret) != "undefined") {
+            $(selector).html(ret);
+          }
+          
+        });
         
       }
      
