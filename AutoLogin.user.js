@@ -1,15 +1,15 @@
 // ==UserScript==
-// @name          AutoLogin - DVP I/O
-// @author        Antoine 'Gecko' Pous <gecko@dvp.io>
-// @contributor   radicaldreamer <raineri.guillaume@gmail.com>
-// @licence       BEER-WARE https://github.com/Antoine-Pous/AnoCheat/blob/master/LICENSE-BEER-WARE
-// @namespace     http://www.dvp.io/fr/blog/anocheat-autologin
-// @description   Permet automatiquement de se connecter quand la page du chat est chargée et de récupérer l'historique du chat
-// @include       http://chat.developpez.com/
-// @version       2014.10.24.1
-// @downloadURL   http://dl.dvp.io/anocheat/AutoLogin.user.js
-// @updateURL     http://dl.dvp.io/anocheat/AutoLogin.user.js
-// @website       http://www.dvp.io
+// @name AutoLogin - DVP I/O
+// @author Antoine 'Gecko' Pous <gecko@dvp.io>
+// @contributor 'radicaldreamer'
+// @licence BEER-WARE https://github.com/Antoine-Pous/AnoCheat/blob/master/LICENSE-BEER-WARE
+// @namespace http://www.dvp.io/fr/blog/anocheat-autologin
+// @description Permet de se connecter automatiquement quand la page du chat est chargée et d'afficher l'historique de conversation
+// @include http://chat.developpez.com/
+// @version 2014.10.24.1
+// @downloadURL http://dl.dvp.io/anocheat/AutoLogin.user.js
+// @updateURL http://dl.dvp.io/anocheat/AutoLogin.user.js
+// @website http://www.dvp.io
 // ==/UserScript==
 function getGlobal(callback) {
     var script = document.createElement("script");
@@ -33,7 +33,7 @@ function mainFunction() {
         effacerCookie('AnoCheat_AutoLogin');
         ecrireCookie('AnoCheat_AutoLogin', autoBackNumber, 365);
         setTimeout(function() {
-            $("#zoneSaisie").val('/BACK ' + autoBackNumber.toString());
+            $("#zoneSaisie").val('/BACK ' + autoBackNumber);
             $('#envoyer').trigger('click');
         }, 3000);
     }
@@ -42,10 +42,12 @@ function mainFunction() {
      */
     setTimeout(function() {
         var autoBackCount = 30;
+        var autoBackCheckbox = '';
         if (autoBackNumber != null) {
             autoBackCount = autoBackNumber;
+            autoBackCheckbox = ' checked';
         }
-        var appendAutoBack = '<p><input id="dlgOptAutoBack" type="checkbox" value="1"><label for="dlgOptAutoBack">Auto/Back<br><small>Cette option permet de restaurer l\'historique de conversation</small><br /></label><input type="text" id="autoBackText" value="' + autoBackCount + '" /></p>';
+        var appendAutoBack = '<p><input id="dlgOptAutoBack" type="checkbox" value="1"'+ autoBackCheckbox +'><label for="dlgOptAutoBack">Auto/Back<br><small>Cette option permet de restaurer l\'historique de conversation</small><br /></label><input type="text" id="autoBackText" value="' + autoBackCount + '" /></p>';
         $('#dialogueOptions p:nth-last-child(2)').prepend(appendAutoBack);
         $('#dialogueOptions').css({
             overflow: 'hidden',
@@ -57,10 +59,10 @@ function mainFunction() {
      * Gestion de la sauvegarde
      */
     $('#dlgOptionsAction').on('click', function(e) {
-        var newValNumber = parseInt($('#autoBackText').val());
+        var newValNumber = parseInt(Math.trunc($('#autoBackText').val()));
         if (newValNumber >= 15 && newValNumber <= 100) {
             if ($('#dlgOptAutoBack').is(':checked')) {
-                ecrireCookie('AnoCheat_AutoLogin', $('#autoBackText').val(), 365);
+                ecrireCookie('AnoCheat_AutoLogin', newValNumber, 365);
             } else {
                 effacerCookie('AnoCheat_AutoLogin');
             }
