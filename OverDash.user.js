@@ -39,7 +39,8 @@ function overDash() {
   function onchange (evt) {
     var v = "visible", h = "hidden", evtMap = {focus:v, focusin:v, pageshow:v, blur:h, focusout:h, pagehide:h};
     if (!(evt.type in evtMap))
-      this[hidden] ? $("#conversation0").append('<hr style="margin:3px; border-style: dashed;border-width: 1px;border-bottom: none;border-color: red;">') : $("#conversation0").append('<hr style="margin:3px; border-style: dashed;border-width: 1px;border-bottom: none;border-color: green;">');
+        if (!$("#conversation0").children().last().is("hr"))
+            this[hidden] ? $("#conversation0").append('<hr style="margin:3px; border-style: dashed;border-width: 1px;border-bottom: none;border-color: red;">') : $("#conversation0").append('<hr style="margin:3px; border-style: dashed;border-width: 1px;border-bottom: none;border-color: green;">');
   }
 
   // set the initial state (but only if browser supports the Page Visibility API)
