@@ -5,7 +5,7 @@
 // @namespace     http://www.dvp.io/fr/blog/anocheat-overdash
 // @description   Ajoute une ligne en pointillé là où vous vous êtes arrêté de lire et où vous êtes revenus
 // @include       http://chat.developpez.com/
-// @version       2014.12.09.1
+// @version       2014.12.09.2
 // @downloadURL   http://dl.dvp.io/anocheat/OverDash.user.js
 // @updateURL     http://dl.dvp.io/anocheat/OverDash.user.js
 // @website       http://www.dvp.io
@@ -42,7 +42,7 @@ function overDash() {
         if (!$("#conversation0").children().last().is("fieldset"))
             var now = new Date();
             var time = ('0'+now.getHours()).slice(-2)+':'+('0'+now.getMinutes()).slice(-2)+':'+('0'+now.getSeconds()).slice(-2);
-            this[hidden] ? $("#conversation0").append('<fieldset style="border-top: 1px dashed #0074cd; border-bottom: none; border-left: none; border-right: none; display: block; text-align: center;"><legend style="padding: 5px 10px; color:#0074cd;">' + time +'</legend></fieldset>') : '';
+            this[hidden] ? $("#conversation0").append('<fieldset style="border-top: 1px dashed #0074cd; border-bottom: none; border-left: none; border-right: none; display: block; text-align: center;"><legend style="padding: 0px 10px; font-size:8pt; color:#0074cd;">' + time +'</legend></fieldset>') : '';
   }
 
   // set the initial state (but only if browser supports the Page Visibility API)
