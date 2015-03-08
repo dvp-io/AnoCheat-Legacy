@@ -1,14 +1,15 @@
 // ==UserScript==
 // @name          OverDash - DVP I/O
 // @author        Antoine 'Gecko' Pous <gecko@dvp.io>
-// @licence       BEER-WARE https://github.com/Antoine-Pous/AnoCheat/blob/master/LICENSE-BEER-WARE
+// @licence       BEER-WARE (rev 42) https://github.com/Antoine-Pous/AnoCheat/blob/master/LICENSE-BEER-WARE
 // @namespace     http://www.dvp.io/fr/blog/anocheat-overdash
-// @description   Ajoute une ligne en pointillé là où vous vous êtes arrêté de lire et où vous êtes revenus
+// @description   Ajoute une ligne en pointillé là où vous vous êtes arrêté de lire
 // @include       http://chat.developpez.com/
-// @version       2014.12.10.5
+// @version       2015.03.08.1
 // @downloadURL   http://dl.dvp.io/anocheat/OverDash.user.js
 // @updateURL     http://dl.dvp.io/anocheat/OverDash.user.js
 // @website       http://www.dvp.io
+// @grant         none
 // ==/UserScript==
 function getGlobal(callback) {
   var script = document.createElement("script");
@@ -17,8 +18,14 @@ function getGlobal(callback) {
   document.body.appendChild(script);
 }
 
-function overDash() {
-  var hidden = "hidden";
+function overdash() {
+  var hidden = "hidden",
+      config = {
+        borderStyle: "dashed",
+        fontSize: 7,
+        borderColor: "#0074cd",
+        autoScroll: 1
+      };
 
   // Standards:
   if (hidden in document)
@@ -38,21 +45,28 @@ function overDash() {
 
   function onchange (evt) {
     var v = "visible", h = "hidden", evtMap = {focus:v, focusin:v, pageshow:v, blur:h, focusout:h, pagehide:h};
-    if (!(evt.type in evtMap))
-      if (!$("#conversation0").children().last().is("fieldset"))
-        var now = new Date();
-        var time = ('0'+now.getHours()).slice(-2)+':'+('0'+now.getMinutes()).slice(-2)+':'+('0'+now.getSeconds()).slice(-2);
-        if(this[hidden]) {
-          $("#conversation0 fieldset").remove();
-          $("#conversation0").append('<fieldset style="border-top: 1px dashed #0074cd; border-bottom: none; border-left: none; border-right: none; display: block; text-align: center; padding:0;"><legend align="center" style="padding: 0px 10px; font-size:7pt; color:#0074cd;">' + time +'</legend></fieldset>');
+    if (!(evt.type in evtMap)) {
+      if($("#ecranChat").hasClass("mono")) {
+        config.borderColor = "#000000";  
+      }
+      if(this[hidden]) {
+        $("#conversation0 fieldset").remove();
+        if (config.fontSize > 0) {
+          var now = new Date();
+          var time = ('0'+now.getHours()).slice(-2)+':'+('0'+now.getMinutes()).slice(-2)+':'+('0'+now.getSeconds()).slice(-2);
+          $("#conversation0").append('<fieldset style="border-top: 1px '+config.borderStyle+' '+config.borderColor+'; border-bottom: none; border-left: none; border-right: none; display: block; text-align: center; padding:0;"><legend align="center" style="padding: 0px 10px; font-size:'+config.fontSize+'; color:'+config.borderColor+';">' + time +'</legend></fieldset>');
         } else {
-          $("#conversation0").scrollTop($("#conversation0")[0].scrollHeight);
+          $("#conversation0").append('<fieldset style="border-top: 1px '+config.borderStyle+' '+config.borderColor+'; border-bottom: none; border-left: none; border-right: none; display: block; text-align: center; padding:0;"></fieldset>');
         }
+      } else {
+        $("#conversation0").animate({scrollTop: $("#conversation0")[0].scrollHeight}, 400);
+      }
+    }
   }
-
+  
   // set the initial state (but only if browser supports the Page Visibility API)
   if( document[hidden] !== undefined )
     onchange({type: document[hidden] ? "blur" : "focus"});
 }
 
-getGlobal(overDash);
+getGlobal(overdash);
