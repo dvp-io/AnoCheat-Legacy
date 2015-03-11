@@ -5,7 +5,7 @@
 // @namespace     http://www.dvp.io/fr/blog/anocheat-overdash
 // @description   Ajoute une ligne en pointillé là où vous vous êtes arrêté de lire
 // @include       http://chat.developpez.com/
-// @version       2015.03.11.1
+// @version       2015.03.11.41
 // @downloadURL   http://dl.dvp.io/anocheat/OverDash.user.js
 // @updateURL     http://dl.dvp.io/anocheat/OverDash.user.js
 // @website       http://www.dvp.io
@@ -19,6 +19,7 @@ function getGlobal(callback) {
 }
 
 function overdash() {
+  
   var hidden = "hidden",
       config = {
         borderStyle: "dashed",
@@ -26,7 +27,17 @@ function overdash() {
         borderColor: "#0074cd",
         autoScroll: 1
       };
-
+  
+  (function ($) {
+    $.each(['show', 'hide'], function (i, ev) {
+      var el = $.fn[ev];
+      $.fn[ev] = function () {
+        this.trigger(ev);
+        return el.apply(this, arguments);
+      };
+    });
+  })(jQuery);
+  
   // Standards:
   if (hidden in document)
     document.addEventListener("visibilitychange", onchange);
@@ -43,30 +54,82 @@ function overdash() {
   else
     window.onpageshow = window.onpagehide = window.onfocus = window.onblur = onchange;
 
+    
+  var separator = function() {
+    
+    borderColor = optionsChat.indexOf('M') > -1 ? "#000000" : "#0074cd";
+    
+    var legend = '';
+    
+    if (config.fontSize > 0) {
+          
+      var now = new Date();
+      var time = ('0'+now.getHours()).slice(-2)+':'+('0'+now.getMinutes()).slice(-2)+':'+('0'+now.getSeconds()).slice(-2);
+      legend = '<legend align="center" style="padding: 0px 10px; font-size:' + config.fontSize + '; color:' + borderColor + ';">' + time +'</legend>';
+        
+    }
+    
+    return '<fieldset style="border-top: 1px ' + config.borderStyle + ' ' + borderColor + '; border-bottom: none; border-left: none; border-right: none; display: block; text-align: center; padding:0;">' + legend + '</fieldset>';
+  }
   function onchange (evt) {
     var v = "visible", h = "hidden", evtMap = {focus:v, focusin:v, pageshow:v, blur:h, focusout:h, pagehide:h};
     if (!(evt.type in evtMap)) {
-      if(optionsChat.indexOf('M')) {
-        config.borderColor = "#000000";  
-      }
+        
       if(this[hidden]) {
-        $("#conversation0 fieldset").remove();
-        if (config.fontSize > 0) {
-          var now = new Date();
-          var time = ('0'+now.getHours()).slice(-2)+':'+('0'+now.getMinutes()).slice(-2)+':'+('0'+now.getSeconds()).slice(-2);
-          $("#conversation0").append('<fieldset style="border-top: 1px '+config.borderStyle+' '+config.borderColor+'; border-bottom: none; border-left: none; border-right: none; display: block; text-align: center; padding:0;"><legend align="center" style="padding: 0px 10px; font-size:'+config.fontSize+'; color:'+config.borderColor+';">' + time +'</legend></fieldset>');
-        } else {
-          $("#conversation0").append('<fieldset style="border-top: 1px '+config.borderStyle+' '+config.borderColor+'; border-bottom: none; border-left: none; border-right: none; display: block; text-align: center; padding:0;"></fieldset>');
+        
+        $("#conversation0 fieldset.read, #conversation-1 fieldset.read").remove();
+        
+        if ($('#conversation-1').length && !($("#conversation-1 fieldset").length)) {
+          $('#conversation-1').append(separator);
+          console.log('#-1 append + tab');
         }
+        
+        if (!($('#conversation0 fieldset').length)) {
+          $('#conversation0').append(separator);
+          console.log('#0 append + tab');
+        }
+        
       } else {
+        
+        $('.conversation:visible fieldset').addClass('read');
         $("#conversation0").animate({scrollTop: $("#conversation0")[0].scrollHeight}, 400);
+      
       }
     }
   }
+
+  $('#conversations').on('show', '#conversation-1, #conversation0', function() {
+
+    if ($(this).children('fieldset').not('read').length) {
+      
+      $(this).children('fieldset').addClass('read');
+      console.log('add class read');
+      
+    }
   
+  }).on('hide', '#conversation-1, #conversation0', function() {
+    
+    if ($(this).children('fieldset.read').length) {
+      
+      $(this).children('fieldset.read').remove();
+      $(this).append(separator);
+      console.log('rm read + append conv read');
+      
+    } else if (!($(this).children('fieldset').length)) {
+      
+      $(this).append(separator);
+      console.log('append hide no fieldset');
+      
+    }
+    
+  });
+    
+    
   // set the initial state (but only if browser supports the Page Visibility API)
   if( document[hidden] !== undefined )
     onchange({type: document[hidden] ? "blur" : "focus"});
 }
+
+
 
 getGlobal(overdash);
