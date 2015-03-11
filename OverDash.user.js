@@ -5,7 +5,7 @@
 // @namespace     http://www.dvp.io/fr/blog/anocheat-overdash
 // @description   Ajoute une ligne en pointillé là où vous vous êtes arrêté de lire
 // @include       http://chat.developpez.com/
-// @version       2015.03.08.1
+// @version       2015.03.11.1
 // @downloadURL   http://dl.dvp.io/anocheat/OverDash.user.js
 // @updateURL     http://dl.dvp.io/anocheat/OverDash.user.js
 // @website       http://www.dvp.io
@@ -46,7 +46,7 @@ function overdash() {
   function onchange (evt) {
     var v = "visible", h = "hidden", evtMap = {focus:v, focusin:v, pageshow:v, blur:h, focusout:h, pagehide:h};
     if (!(evt.type in evtMap)) {
-      if($("#ecranChat").hasClass("mono")) {
+      if(optionsChat.indexOf('M')) {
         config.borderColor = "#000000";  
       }
       if(this[hidden]) {
