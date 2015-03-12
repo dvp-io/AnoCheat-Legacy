@@ -1,6 +1,7 @@
 // ==UserScript==
 // @name          OverDash - DVP I/O
 // @author        Antoine 'Gecko' Pous <gecko@dvp.io>
+// @contributor   Cédric `Golgotha29` Salaun <cedric.salaun@gmail.com>
 // @licence       BEER-WARE (rev 42) https://github.com/Antoine-Pous/AnoCheat/blob/master/LICENSE-BEER-WARE
 // @namespace     http://www.dvp.io/fr/blog/anocheat-overdash
 // @description   Ajoute une ligne en pointillé là où vous vous êtes arrêté de lire
