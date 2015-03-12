@@ -5,7 +5,7 @@
 // @namespace     http://www.dvp.io/fr/blog/anocheat-overdash
 // @description   Ajoute une ligne en pointillé là où vous vous êtes arrêté de lire
 // @include       http://chat.developpez.com/
-// @version       2015.03.11.41
+// @version       2015.03.12.1
 // @downloadURL   http://dl.dvp.io/anocheat/OverDash.user.js
 // @updateURL     http://dl.dvp.io/anocheat/OverDash.user.js
 // @website       http://www.dvp.io
@@ -29,13 +29,20 @@ function overdash() {
       };
   
   (function ($) {
+    
     $.each(['show', 'hide'], function (i, ev) {
+      
       var el = $.fn[ev];
+      
       $.fn[ev] = function () {
+        
         this.trigger(ev);
         return el.apply(this, arguments);
+        
       };
+      
     });
+    
   })(jQuery);
   
   // Standards:
@@ -72,7 +79,9 @@ function overdash() {
     return '<fieldset style="border-top: 1px ' + config.borderStyle + ' ' + borderColor + '; border-bottom: none; border-left: none; border-right: none; display: block; text-align: center; padding:0;">' + legend + '</fieldset>';
   }
   function onchange (evt) {
+    
     var v = "visible", h = "hidden", evtMap = {focus:v, focusin:v, pageshow:v, blur:h, focusout:h, pagehide:h};
+    
     if (!(evt.type in evtMap)) {
         
       if(this[hidden]) {
@@ -80,13 +89,15 @@ function overdash() {
         $("#conversation0 fieldset.read, #conversation-1 fieldset.read").remove();
         
         if ($('#conversation-1').length && !($("#conversation-1 fieldset").length)) {
+          
           $('#conversation-1').append(separator);
-          console.log('#-1 append + tab');
+          
         }
         
         if (!($('#conversation0 fieldset').length)) {
+          
           $('#conversation0').append(separator);
-          console.log('#0 append + tab');
+          
         }
         
       } else {
@@ -103,7 +114,6 @@ function overdash() {
     if ($(this).children('fieldset').not('read').length) {
       
       $(this).children('fieldset').addClass('read');
-      console.log('add class read');
       
     }
   
@@ -113,12 +123,10 @@ function overdash() {
       
       $(this).children('fieldset.read').remove();
       $(this).append(separator);
-      console.log('rm read + append conv read');
       
     } else if (!($(this).children('fieldset').length)) {
       
       $(this).append(separator);
-      console.log('append hide no fieldset');
       
     }
     
@@ -129,7 +137,5 @@ function overdash() {
   if( document[hidden] !== undefined )
     onchange({type: document[hidden] ? "blur" : "focus"});
 }
-
-
 
 getGlobal(overdash);
