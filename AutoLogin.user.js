@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name          AutoLogin - DVP I/O
 // @author        Antoine 'Gecko' Pous <gecko@dvp.io>
-// @contributor   Guillaume 'radicaldreamer' Raineri <raineri.guillaume@gmail.com>
+// @contributor   Guillaume 'rikemSen' Raineri <raineri.guillaume@gmail.com>
 // @licence       BEER-WARE https://github.com/Antoine-Pous/AnoCheat/blob/master/LICENSE-BEER-WARE
 // @namespace     http://www.dvp.io/fr/blog/anocheat-autologin
 // @description   Permet de se connecter automatiquement quand la page du chat est chargée et de récupérer l'historique de conversation
