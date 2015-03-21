@@ -5,7 +5,7 @@
 // @namespace     http://dl.dvp.io/anocheat/GeckSPArrow.user.js
 // @description   Ajoute des flèches qui facilitent l'accès visuel aux interventions sur le chat
 // @include       http://chat.developpez.com/
-// @version       2015.03.21.1
+// @version       2015.03.21.2
 // @downloadURL   http://dl.dvp.io/anocheat/GeckSPArrow.user.js
 // @updateURL     http://dl.dvp.io/anocheat/GeckSPArrow.user.js
 // @website       http://www.dvp.io
@@ -19,7 +19,7 @@ var getGlobal = function(callback) {
   document.body.appendChild(script);
 };
  
-var GeckSpArrow = function() {
+function GeckSpArrow() {
   
     $(document).ajaxComplete(function(event, xhr, settings) {
       
