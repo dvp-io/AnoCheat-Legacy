@@ -15,11 +15,12 @@
 function getGlobal(callback) {
   var script = document.createElement("script");
   script.type = "text/javascript";
+  script.id = callback.name;
   script.textContent = "(" + callback.toString() + ")();";
   document.body.appendChild(script);
 }
 
-function overdash() {
+function OverDash() {
   
   var hidden = "hidden",
       config = {
@@ -139,4 +140,4 @@ function overdash() {
     onchange({type: document[hidden] ? "blur" : "focus"});
 }
 
-getGlobal(overdash);
+getGlobal(OverDash);
