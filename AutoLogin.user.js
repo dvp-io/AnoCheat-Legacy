@@ -6,7 +6,7 @@
 // @namespace     http://www.dvp.io/fr/blog/anocheat-autologin
 // @description   Permet de se connecter automatiquement quand la page du chat est chargée et de récupérer l'historique de conversation
 // @include       http://chat.developpez.com/
-// @version       2015.03.19.1
+// @version       2015.03.21.1
 // @downloadURL   http://dl.dvp.io/anocheat/AutoLogin.user.js
 // @updateURL     http://dl.dvp.io/anocheat/AutoLogin.user.js
 // @website       http://www.dvp.io
@@ -14,6 +14,7 @@
 function getGlobal(callback) {
     var script = document.createElement("script");
     script.type = "text/javascript";
+    script.id = callback.name;
     script.textContent = "(" + callback.toString() + ")();";
     document.body.appendChild(script);
 }
