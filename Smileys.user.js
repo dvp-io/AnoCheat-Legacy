@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name          Smileys - DVP I/O
-// @author				    Antoine 'Gecko' Pous <gecko@dvp.io>
+// @author				Antoine 'Gecko' Pous <gecko@dvp.io>
 // @licence       BEER-WARE https://github.com/Antoine-Pous/AnoCheat/blob/master/LICENSE-BEER-WARE
 // @namespace     http://www.dvp.io/fr/blog/anocheat-autologin
 // @description   Ajoute les smileys disponibles sur le dépôt de dvp.io à l'anochat
 // @include       http://chat.developpez.com/
-// @version       2014.10.04.2
+// @version       2015.03.21.1
 // @downloadURL   http://dl.dvp.io/anocheat/Smileys.user.js
 // @updateURL     http://dl.dvp.io/anocheat/Smileys.user.js
 // @website       http://www.dvp.io
@@ -14,11 +14,12 @@
 var getGlobal = function(callback) {
     var script = document.createElement("script");
     script.type = "text/javascript";
+    script.id = callback.name;
     script.textContent = "(" + callback.toString() + ")();";
     document.body.appendChild(script);
 };
 
-var main = function() {
+var Smileys = function() {
     var anochatURI = window.location.hostname;
 
     $("#identAction").on("click",function() {
@@ -85,4 +86,4 @@ var main = function() {
     });
 };
 
-getGlobal(main);
+getGlobal(Smileys);
