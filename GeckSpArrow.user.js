@@ -14,6 +14,7 @@
 var getGlobal = function(callback) {
   var script = document.createElement("script");
   script.type = "text/javascript";
+  script.id = callback.name;
   script.textContent = "(" + callback.toString() + ")();";
   document.body.appendChild(script);
 };
