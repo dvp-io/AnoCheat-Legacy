@@ -6,7 +6,7 @@
 // @namespace     http://www.dvp.io/fr/blog/anocheat-overdash
 // @description   Ajoute une ligne en pointillé là où vous vous êtes arrêté de lire
 // @include       http://chat.developpez.com/
-// @version       2015.03.12.1
+// @version       2015.03.21.1
 // @downloadURL   http://dl.dvp.io/anocheat/OverDash.user.js
 // @updateURL     http://dl.dvp.io/anocheat/OverDash.user.js
 // @website       http://www.dvp.io
