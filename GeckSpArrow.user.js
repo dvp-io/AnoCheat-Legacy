@@ -19,7 +19,7 @@ var getGlobal = function(callback) {
   document.body.appendChild(script);
 };
  
-var main = function() {
+var GeckSpArrow = function() {
   
     $(document).ajaxComplete(function(event, xhr, settings) {
       
@@ -99,4 +99,4 @@ var main = function() {
     
 };
  
-getGlobal(main);
+getGlobal(GeckSpArrow);
