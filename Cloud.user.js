@@ -5,7 +5,7 @@
 // @namespace     http://www.dvp.io/fr/blog/anocheat-cloud
 // @description   Permet de sauvegarder votre configuration sur le cloud et de la récupérer facilement
 // @include       http://chat.developpez.com/
-// @version       2015.03.21.1
+// @version       2015.03.22.1
 // @downloadURL   http://dl.dvp.io/anocheat/Cloud.user.js
 // @updateURL     http://dl.dvp.io/anocheat/Cloud.user.js
 // @website       http://www.dvp.io
@@ -93,14 +93,14 @@ function Cloud() {
     $('<input />')
       .addClass('bouton')
       .attr({'type':'button','value':'↓','id':'cloudIODown'})
-      .css({'background': '#729648 url(http://media.dvp.io/anocheat/01x18_button_green.png) repeat-x 0 0 !important', 'border': '1px solid green !important', 'box-shadow': '0px 1px 2px #000, inset 0 .4em rgba(255,255,255,.07), inset 0 -1px 1px #459042!important','margin':0 })
+      .css({'background': '#729648 url(http://media.dvp.io/anocheat/01x18_button_green.png) repeat-x 0 0', 'border': '1px solid green', 'box-shadow': '0px 1px 2px #000, inset 0 .4em rgba(255,255,255,.07), inset 0 -1px 1px #459042','margin':0 })
   );
   
   $("#barreOutils span.cloudIO").append(
     $('<input />')
       .addClass('bouton')
       .attr({'type':'button','value':'↑','id':'cloudIOUp'})
-      .css({'background': '#729648 url(http://media.dvp.io/anocheat/01x18_button_green.png) repeat-x 0 0 !important', 'border': '1px solid green !important', 'box-shadow': '0px 1px 2px #000, inset 0 .4em rgba(255,255,255,.07), inset 0 -1px 1px #459042!important','margin':0 })
+      .css({'background': '#729648 url(http://media.dvp.io/anocheat/01x18_button_green.png) repeat-x 0 0', 'border': '1px solid green', 'box-shadow': '0px 1px 2px #000, inset 0 .4em rgba(255,255,255,.07), inset 0 -1px 1px #459042','margin':0 })
   );
   
   $("#cloudIOUp").on('click', function() {
