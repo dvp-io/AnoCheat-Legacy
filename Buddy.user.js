@@ -5,7 +5,7 @@
 // @namespace     http://www.dvp.io/fr/blog/anocheat-buddy
 // @description   Met en avant vos amis DVP sur le chat et customise le comportement du chat
 // @include       http://chat.developpez.com/
-// @version       2015.03.21.11
+// @version       2015.03.21.12
 // @downloadURL   http://dl.dvp.io/anocheat/Buddy.user.js
 // @updateURL     http://dl.dvp.io/anocheat/Buddy.user.js
 // @website       http://www.dvp.io
@@ -162,8 +162,8 @@ function Buddy() {
       }
     }  
     jQuery(".nomConnecte").each(function(){ 
-      var user = jQuery(this).attr('onclick').split(new RegExp("[\(\",]+", "g"));        
-      if(jQuery.inArray(user[2], buddyList) > 0) {          
+      var user = jQuery(this).attr('onclick').split(new RegExp("[\(\",]+", "g"));
+      if(jQuery.inArray(user[2], buddyList) > -1) {
         buddyCount++;  
 	if(buddyConfig.icon > 0 && !(jQuery(this).children('.buddyFriendIcon'+buddyConfig.icon).length)) {
 	  jQuery(this).find('.buddyFriendIcon').remove();
