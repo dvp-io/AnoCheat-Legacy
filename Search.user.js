@@ -5,7 +5,7 @@
 // @namespace     http://www.dvp.io/fr/blog/anocheat-autologin
 // @description   Ajoute des fonctions de recherche via l'API Search DVP I/O à l'AnoChat
 // @include       http://chat.developpez.com/
-// @version       2015.03.21.1
+// @version       2015.03.24.1
 // @downloadURL   http://dl.dvp.io/anocheat/Search.user.js
 // @updateURL     http://dl.dvp.io/anocheat/Search.user.js
 // @website       http://www.dvp.io
@@ -63,7 +63,7 @@ function Search() {
 		
 		engine = engine.replace('!','');
 		
-		$.get("http://api.dvp.io/search/?get=manpage&engine="+engine,function(obj) {
+		$.get("https://api.dvp.io/search/?get=manpage&engine="+engine,function(obj) {
 			
 			if(typeof(obj.error) != "undefined"){
 				
@@ -93,7 +93,7 @@ function Search() {
 	var updateCommands = function() {
 		
 		
-		$.get("http://api.dvp.io/search/",function(obj) {
+		$.get("https://api.dvp.io/search/",function(obj) {
 			
 			if(typeof(obj.error) != "undefined") {
 				
@@ -130,7 +130,7 @@ function Search() {
 	
   var makeSearch = function(engine, query, target) {
     
-		var uri = "http://api.dvp.io/search/?engine="+engine+"&query="+encodeURIComponent(query);
+		var uri = "https://api.dvp.io/search/?engine="+engine+"&query="+encodeURIComponent(query);
     
 		$.get(uri,function(obj) {
       
