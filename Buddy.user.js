@@ -136,7 +136,7 @@ function Buddy() {
         if(jQuery(this).find('span.icone-nopv').length === 1 || jQuery(this).find('span.icone-niv4').length === 1 || jQuery(this).find('span.icone-niv3').length === 1) {
           buddyPM = false;
         }
-        jQuery.getJSON('http://api.dvp.io/buddy/?sid='+session, function(data) {
+        jQuery.getJSON('https://api.dvp.io/buddy/?sid='+session, function(data) {
           buddyList = [];
           if (typeof(data.data) != "undefined") {
             $.each(data.data,function(key,val){ 
