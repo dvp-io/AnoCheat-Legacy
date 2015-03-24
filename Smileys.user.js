@@ -5,7 +5,7 @@
 // @namespace     http://www.dvp.io/fr/blog/anocheat-autologin
 // @description   Ajoute les smileys disponibles sur le dépôt de dvp.io à l'anochat
 // @include       http://chat.developpez.com/
-// @version       2015.03.21.2
+// @version       2015.03.24.1
 // @downloadURL   http://dl.dvp.io/anocheat/Smileys.user.js
 // @updateURL     http://dl.dvp.io/anocheat/Smileys.user.js
 // @website       http://www.dvp.io
@@ -27,7 +27,7 @@ function Smileys() {
         if(oldList.length > 0) {
             oldList.remove();
         }
-        $.get("http://api.dvp.io/smileys/",function (obj) {
+        $.get("https://api.dvp.io/smileys/",function (obj) {
             var media = decodeURIComponent(obj.api.media);
             var $legendFs = $('<legend />').html(obj.api.count+' '+obj.api.name+' v'+obj.api.version);
             var $fsSmileys = $('<fieldset />').attr('id', 'apiSmileysTitle').append($legendFs);
