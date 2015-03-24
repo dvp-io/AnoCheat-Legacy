@@ -5,7 +5,7 @@
 // @namespace     http://www.dvp.io/fr/blog/anocheat-cloud
 // @description   Permet de sauvegarder votre configuration sur le cloud et de la récupérer facilement
 // @include       http://chat.developpez.com/
-// @version       2015.03.22.1
+// @version       2015.03.24.1
 // @downloadURL   http://dl.dvp.io/anocheat/Cloud.user.js
 // @updateURL     http://dl.dvp.io/anocheat/Cloud.user.js
 // @website       http://www.dvp.io
@@ -60,7 +60,7 @@ function Cloud() {
     
     $.ajax({
       type: "POST",
-      url: "http://api.dvp.io/cloudio/",
+      url: "https://api.dvp.io/cloudio/",
       'data': data,
       success: function(ret) {
         
