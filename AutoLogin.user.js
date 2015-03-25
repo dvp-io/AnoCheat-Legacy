@@ -6,7 +6,7 @@
 // @namespace     http://www.dvp.io/fr/blog/anocheat-autologin
 // @description   Permet de se connecter automatiquement quand la page du chat est chargée et de récupérer l'historique de conversation
 // @include       http://chat.developpez.com/
-// @version       2015.03.21.3
+// @version       2015.03.25.2
 // @downloadURL   http://dl.dvp.io/anocheat/AutoLogin.user.js
 // @updateURL     http://dl.dvp.io/anocheat/AutoLogin.user.js
 // @website       http://www.dvp.io
@@ -59,15 +59,6 @@ function AutoLogin() {
     delete tmp_cookie;
   }
   
-  // Create options block for script if not already exists
-  if(!($("#identTableau tr td:nth-child(2) div#AnoCheat").length)) {
-    $('<div class="cadre" id="AnoCheat" style="border-color:#459045;"><i style="color: #459045;">AnoCheat - DVP I/O</i><br /></div>').insertBefore("#identTableau tr td:nth-child(2) div.cadre:nth-child(2)");
-  }
-  
-  // Append options to login page
-  $("#identTableau #AnoCheat").append('<input type="checkbox" id="autoLogin" name="autoLogin" min="0" max="100" value="1" ' + (options.auto == true ? 'checked="checked"' : '') + '/> <label for="autoLogin">Connexion automatique</label><br />');
-  $("#identTableau #AnoCheat").append('<label for="autoBack">Récupérer automatiquement <input type="number" id="autoBack" name="autoBack" min="0" max="100" value="' + options.lines + '" style="width:40px; border:none;"/> lignes d\'historique</label><br />');
-  
   // Apply new CSS rules to options modal, now user can scroll the box
   $("#dialogueOptions").css({"overflow-x":"hidden", "overflow-y":"scroll"});
   
@@ -83,24 +74,8 @@ function AutoLogin() {
   $('<p><input type="checkbox" id="autoLogin" name="autoLogin" min="0" max="100" value="1" ' + (options.auto == true ? 'checked="checked"' : '') + '/> <label for="autoLogin">Connexion automatique</label></p><br />').insertBefore("#dialogueOptions p.valider");
   $('<p><label for="autoBack">Récupérer automatiquement <input type="number" id="autoBack" name="autoBack" min="0" max="100" value="' + options.lines + '" style="width:40px; border:none;"/> lignes d\'historique</label></p><br />').insertBefore("#dialogueOptions p.valider");
   
-  // When user change value from login page
-  $("#identTableau #autoLogin").on('click', function() {
-    options.auto = $(this).is('checked');
-  });
-  
-  $("#identTableau #autoBack").bind('keyup mouseup', function() {
-    options.lines = $(this).val() >= 0 && $(this).val() <= 100 ? $(this).val() : options.lines;
-  });
-  
   // When user click on login button
   $("#identAction").on('click', function() {
-    
-    // If user use cookie, we save the current config
-    if ($("#identMemoriser").is(':checked')) {
-      
-      updateCookie(options);
-      
-    }
     
     // Auto back
     if (options.lines > 0) {
