@@ -6,18 +6,18 @@
 // @namespace     http://www.dvp.io/fr/blog/anocheat-notify
 // @description   Permet d'être notifié en cas de nouveau message qui vous est destiné
 // @include       http://chat.developpez.com/
-// @version       2015.03.26.2
+// @version       2015.03.26.4
 // @downloadURL   http://dl.dvp.io/anocheat/Notify.user.js
 // @updateURL     http://dl.dvp.io/anocheat/Notify.user.js
 // @website       http://www.dvp.io
 // ==/UserScript==
 
 function getGlobal(callback) {
-	var script = document.createElement("script");
-	script.type = "text/javascript";
+  var script = document.createElement("script");
+  script.type = "text/javascript";
   script.id = callback.name;
-	script.textContent = "(" + callback.toString() + ")();";
-	document.body.appendChild(script);
+  script.textContent = "(" + callback.toString() + ")();";
+  document.body.appendChild(script);
 }
  
 function Notifier() {
@@ -50,7 +50,7 @@ function Notifier() {
     if (play) {
       
       var tmp_tabs = $('.ongletMessage').length;
-      var tmp_arrows = $('#conversation0 img[src="images/fleche.png"]').length;
+      var tmp_arrows = $('#conversation0 img[src$="fleche.png"], #conversation-1 img[src$="fleche.png"], #conversation0 img[src$="incoming.png"], #conversation-1 img[src$="incoming.png"]').length;
       
       if (tmp_arrows || tmp_tabs) {
         
