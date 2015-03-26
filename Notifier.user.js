@@ -1,12 +1,12 @@
 // ==UserScript==
-// @name          Notify - DVP I/O
+// @name          Notifier - DVP I/O
 // @author        Antoine `Gecko` Pous <gecko@dvp.io>
 // @contributor   Shikiryu
 // @licence       BEER-WARE https://github.com/Antoine-Pous/AnoCheat/blob/master/LICENSE-BEER-WARE
 // @namespace     http://www.dvp.io/fr/blog/anocheat-notify
 // @description   Permet d'être notifié en cas de nouveau message qui vous est destiné
 // @include       http://chat.developpez.com/
-// @version       2015.03.26.1
+// @version       2015.03.26.2
 // @downloadURL   http://dl.dvp.io/anocheat/Notify.user.js
 // @updateURL     http://dl.dvp.io/anocheat/Notify.user.js
 // @website       http://www.dvp.io
