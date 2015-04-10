@@ -54,16 +54,16 @@ function Notifier() {
       .addClass('bouton')
       .attr({'type':'button','id':'shikisound'})
       .val(function() {
-        if (options.playSound) {
-          var val = 'Bip';
-          $(this).css({textDecoration: 'none'});
-        } else if (!options.playSound && $('#modcp').is(':visible') && options.playAlert) {
-          var val = 'Alert';
-          $(this).css({textDecoration: 'none'});
-        } else {
-          var val = 'Bip';
-          $(this).css({textDecoration: 'line-through'});
+        var val = 'Bip',
+            css = 'none';
+        if (!options.playSound) {
+          if ($('#modcp').is(':visible') && options.playAlert) {
+            val = 'Alert';
+          } else {
+            css = 'line-through';
+          }
         }
+        $(this).css({textDecoration: css});
         return val;
       })
       .click(function() {
