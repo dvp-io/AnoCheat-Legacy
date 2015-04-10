@@ -6,7 +6,7 @@
 // @namespace     http://www.dvp.io/fr/blog/anocheat-notify
 // @description   Permet d'être notifié en cas de nouveau message qui vous est destiné
 // @include       http://chat.developpez.com/
-// @version       2015.04.09.2
+// @version       2015.04.10.1
 // @downloadURL   http://dl.dvp.io/anocheat/Notify.user.js
 // @updateURL     http://dl.dvp.io/anocheat/Notify.user.js
 // @website       http://www.dvp.io
@@ -53,7 +53,19 @@ function Notifier() {
     $('<input />')
       .addClass('bouton')
       .attr({'type':'button','id':'shikisound'})
-      .val('Bip')
+      .val(function() {
+        if (options.playSound) {
+          var val = 'Bip';
+          $(this).css({textDecoration: 'none'});
+        } else if (!options.playSound && $('#modcp').is(':visible') && options.playAlert) {
+          var val = 'Alert';
+          $(this).css({textDecoration: 'none'});
+        } else {
+          var val = 'Bip';
+          $(this).css({textDecoration: 'line-through'});
+        }
+        return val;
+      })
       .click(function() {
         
         if(options.playSound) {
