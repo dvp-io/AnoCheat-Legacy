@@ -6,9 +6,9 @@
 // @namespace     http://www.dvp.io/fr/blog/anocheat-notify
 // @description   Permet d'être notifié en cas de nouveau message qui vous est destiné
 // @include       http://chat.developpez.com/
-// @version       2015.04.10.1
-// @downloadURL   http://dl.dvp.io/anocheat/Notify.user.js
-// @updateURL     http://dl.dvp.io/anocheat/Notify.user.js
+// @version       2015.04.18.1
+// @downloadURL   http://dl.dvp.io/anocheat/Notifier.user.js
+// @updateURL     http://dl.dvp.io/anocheat/Notifier.user.js
 // @website       http://www.dvp.io
 // ==/UserScript==
 
