@@ -6,6 +6,8 @@ N'hésitez pas à me soumettre vos idées, j'essaie d'allouer 2-3h par semaine �
 
 Les scripts présents sur le [FTP I/O](http://dl.dvp.io/anocheat/) qui ne sont pas sur ce repo sont à utiliser avec prudence, je ne publie que les userscripts en bêta / stables
 
+Pour en savoir plus concernant un script rendez-vous sur le [wiki du repo](https://github.com/dvp-io/AnoCheat/wiki)
+
 ## Licence
 Tous les scripts sont sous licence BEER-WARE (Rev 42)
 ```
