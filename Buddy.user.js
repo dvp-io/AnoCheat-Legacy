@@ -127,7 +127,7 @@ function Buddy() {
     height: 475
   });
 
-  // Récupéarion de la liste des amis
+  // Récupération de la liste des amis
   buddyLoad = function buddyLoad() {
     jQuery(".nomConnecte").each(function(){
       var user = jQuery(this).attr('onclick').split(new RegExp("[\(\",]+", "g"));
