@@ -1,0 +1,21 @@
+/* Mode monochrome ultime
+   Ce mode sera prochainement disponible nativement
+   Par Antoine `Gecko` Pous
+*/
+.mono, .mono *:not(.ui-dialog-titlebar-close):not(.fermeture):not(#quitterChat):not(.icone) {
+  color: black !important;
+  background: white !important;
+  text-shadow: none !important;
+  box-shadow: 0 0 !important;
+  border-color: black !important;
+}
+
+.mono img, .mono * img, .mono * .ui-dialog-titlebar-close, .mono * .fermeture, .mono * #quitterChat, .mono * .icone {
+  filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter ….3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+  filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: gray;
+  -webkit-filter: grayscale(100%);
+}
