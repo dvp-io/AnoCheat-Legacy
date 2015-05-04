@@ -10,6 +10,10 @@
   border-color: black !important;
 }
 
+.mono * .ongletActivite table:first-child {
+  font-style: italic;
+}
+
 .mono * .ongletMessage table:first-child {
   text-decoration: underline;
 }
