@@ -10,8 +10,16 @@
   border-color: black !important;
 }
 
+.mono * .ongletActivité {
+  border-style: dotted;
+}
+
 .mono * .ongletActivite table:first-child {
   font-style: italic;
+}
+
+.mono * .ongletMessage {
+  border-style: dashed;
 }
 
 .mono * .ongletMessage table:first-child {
@@ -26,4 +34,8 @@
   -o-filter: grayscale(100%);
   filter: gray;
   -webkit-filter: grayscale(100%);
+}
+
+.mono * .ColorPickerDivSample {
+  display: none;
 }
