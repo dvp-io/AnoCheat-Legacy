@@ -11,19 +11,19 @@
 }
 
 .mono * .ongletActivite {
-  border-style: dotted;
+  border-style: dotted !important;
 }
 
 .mono * .ongletActivite table:first-child {
-  font-style: italic;
+  font-style: italic !important;
 }
 
 .mono * .ongletMessage {
-  border-style: dashed;
+  border-style: dashed !important;
 }
 
 .mono * .ongletMessage table:first-child {
-  text-decoration: underline;
+  text-decoration: underline !important;
 }
 
 .mono img, .mono * img, .mono * .ui-dialog-titlebar-close, .mono * .fermeture, .mono * #quitterChat, .mono * #reduireListe, .mono * .icone {
@@ -37,5 +37,10 @@
 }
 
 .mono * .ColorPickerDivSample {
-  display: none;
+  display: none !important;
+}
+
+/* Correctifs */
+.groupeBoutons {
+  display: inline-block !important;
 }
