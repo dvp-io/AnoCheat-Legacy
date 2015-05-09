@@ -49,8 +49,14 @@
    <h4 style="margin: 0 0 0 0;">Highlight</h4>
    <i>Vous permet de différencier vos amis grâce à un highlight personalisé</i>
    <p id="buddyHighlight" style="margin: 0 0 5px 20px;">
-      <label for="buddyHighlightColor">Code couleur #</label>
-      <input type="text" id="buddyHighlightColor" placeholder="D0F0B0" size="4" maxlength="6" />
+      <input type="checkbox" id="buddyHighlightStatus"/><label for="buddyHighlightStatus">Activer</label><br>
+      <label for="buddyHighlightColor">Couleur </label><input type="color" id="buddyHighlightColor" size="4" maxlength="6" />
+   </p>
+   <h4 style="margin: 0 0 0 0;">Notifications</h4>
+   <i>Vous permet d'être notifié lorsqu'un ami se connecte au chat</i>
+   <p id="buddyNotifier" style="margin: 0 0 5px 20px;">
+      <input type="checkbox" id="buddyNotifyChat"/><label for="buddyHighlightStatus">Notification sur le chat</label><br>
+      <input type="checkbox" id="buddyNotifySystem"/><label for="buddyHighlightStatus">Notification système</label><br>
    </p>
    <h4 style="margin: 0 0 0 0;">Allow MP</h4>
    <i>Vous permet de définir le comportement à adopter quand un ami se connecte et que vous refusez les MP</i>
