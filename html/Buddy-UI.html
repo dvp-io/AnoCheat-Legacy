@@ -55,10 +55,22 @@
    <h4 style="margin: 0 0 0 0;">Notifications</h4>
    <i>Vous permet d'être notifié lorsqu'un ami se connecte au chat</i>
    <p id="buddyNotifier" style="margin: 0 0 5px 20px;">
-      <input type="checkbox" id="buddyNotifyChat"/><label for="buddyHighlightStatus">Notification sur le chat</label><br>
-      <input type="checkbox" id="buddyNotifySystem"/><label for="buddyHighlightStatus">Notification système</label><br>
+      <label for="buddyNotifyChat">Notifications sur le chat</label>
+      <select id="buddyNotifyChat">
+         <option value="0">Désactivées</option>
+         <option value="1">Activées</option>
+         <option value="2">Connexion uniquement</option>
+         <option value="3">Déconnexion uniquement</option>
+      </select><br>
+      <label for="buddyNotifySystem">Notifications système</label>
+      <select id="buddyNotifySystem">
+         <option value="0">Désactivées</option>
+         <option value="1">Activées</option>
+         <option value="2">Connexion uniquement</option>
+         <option value="3">Déconnexion uniquement</option>
+      </select>
    </p>
-   <h4 style="margin: 0 0 0 0;">Allow MP</h4>
+   <h4 style="margin: 0 0 0 0;">Autoriser les MP</h4>
    <i>Vous permet de définir le comportement à adopter quand un ami se connecte et que vous refusez les MP</i>
    <p style="margin: 0 0 5px 20px;">
       <select id="buddySelAllow">
