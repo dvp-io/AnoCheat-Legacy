@@ -4,7 +4,7 @@
 // @licence       BEER-WARE https://github.com/Antoine-Pous/AnoCheat/blob/master/LICENSE-BEER-WARE
 // @description   Permet d'avoir un mode monochrome rétroactif, qui puisse être (dés)activé sur l'ensemble du chat
 // @include       http://chat.developpez.com/*
-// @version       2015.05.05.1
+// @version       2015.06.27.1
 // @resource      mono_CSS  http://dl.dvp.io/anocheat/css/mono.css?v7
 // @downloadURL   http://dl.dvp.io/anocheat/UltimateMono.user.js
 // @updateURL     http://dl.dvp.io/anocheat/UltimateMono.user.js
@@ -34,6 +34,8 @@ function UltimateMono() {
         if ($("body").hasClass("mono")) {
           $("body").removeClass("mono");
         } else {
+          $("#zoneSaisie").val('/MODE -M');
+          $("#envoyer").click();
           $("body").addClass("mono");
         }
       })
