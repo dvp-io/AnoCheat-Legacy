@@ -1,7 +1,16 @@
-/* Mode monochrome ultime v7
-   Ce mode sera prochainement disponible nativement
-   Par Antoine `Gecko` Pous
-*/
+/* Mode monochrome ultime rev 8
+ * Ce mode sera prochainement disponible nativement
+ * Par Antoine `Gecko` Pous
+ *
+ *
+ * Changement des couleurs du chat, passage de tous les éléments en noir et blanc
+ *
+ * Exceptions:  .ui-dialog-titlebar-close   Bouton de fermeture des boites de dialogues
+ *              .fermeture                  Bouton de fermeture des onglets de conversations
+ *              #quitterChat                Bouton pour quitter le chat
+ *              #reduireListe               Bouton pour minifier la liste des salons
+ *              .icone                      Icones dans la liste des utilisateurs (pastilles & modes)
+ */
 .mono, .mono *:not(.ui-dialog-titlebar-close):not(.fermeture):not(#quitterChat):not(.icone):not(#reduireListe) {
   color: black !important;
   background: white !important;
